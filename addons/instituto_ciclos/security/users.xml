@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="user_director_instituto" model="res.users">
+            <field name="name">Director Instituto</field>
+            <field name="login">director</field>
+            <field name="password">director</field>
+            <field name="email">director@instituto.local</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="company_ids" eval="[(6, 0, [ref('base.main_company')])]"/>
+            <field name="groups_id" eval="[(6, 0, [ref('base.group_user'), ref('instituto_ciclos.group_director')])]"/>
+        </record>
+    </data>
+</odoo>

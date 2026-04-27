@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_instituto_root" name="Instituto" sequence="10"/>
+
+    <menuitem id="menu_instituto_ciclos"
+              name="Ciclos Formativos"
+              parent="menu_instituto_root"
+              action="action_instituto_ciclo"
+              sequence="20"/>
+
+    <menuitem id="menu_instituto_modulos"
+              name="Modulos"
+              parent="menu_instituto_root"
+              action="action_instituto_modulo"
+              sequence="30"/>
+
+    <menuitem id="menu_instituto_alumnos"
+              name="Alumnos"
+              parent="menu_instituto_root"
+              action="action_instituto_alumno"
+              sequence="40"/>
+
+    <menuitem id="menu_instituto_profesores"
+              name="Profesores"
+              parent="menu_instituto_root"
+              action="action_instituto_profesor"
+              groups="instituto_ciclos.group_director,instituto_ciclos.group_profesor"
+              sequence="50"/>
+</odoo>

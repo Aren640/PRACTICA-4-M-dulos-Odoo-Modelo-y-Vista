@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="biblioteca_socio_action" model="ir.actions.act_window">
+        <field name="name">Socios</field>
+        <field name="res_model">biblioteca.socio</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem name="Socios" id="biblioteca_socio_menu" parent="biblioteca_base_menu" action="biblioteca_socio_action" sequence="20"/>
+
+    <record id="biblioteca_socio_view_list" model="ir.ui.view">
+        <field name="name">biblioteca.socio.list</field>
+        <field name="model">biblioteca.socio</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="identificador"/>
+                <field name="nombre"/>
+                <field name="apellido"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="biblioteca_socio_view_form" model="ir.ui.view">
+        <field name="name">biblioteca.socio.form</field>
+        <field name="model">biblioteca.socio</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="identificador"/>
+                        <field name="nombre"/>
+                        <field name="apellido"/>
+                    </group>
+                    <group string="Prestamos actuales">
+                        <field name="ejemplar_ids" readonly="1">
+                            <list>
+                                <field name="comic_id"/>
+                                <field name="fecha_inicio_prestamo"/>
+                                <field name="fecha_fin_prevista"/>
+                            </list>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="biblioteca_socio_view_search" model="ir.ui.view">
+        <field name="name">biblioteca.socio.search</field>
+        <field name="model">biblioteca.socio</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="identificador"/>
+                <field name="nombre"/>
+                <field name="apellido"/>
+            </search>
+        </field>
+    </record>
+
+</odoo>

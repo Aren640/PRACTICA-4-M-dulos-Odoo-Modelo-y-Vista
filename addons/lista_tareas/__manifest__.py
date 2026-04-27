@@ -1,29 +1,17 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Lista de tareas",
-    'summary': """
-Sencilla Lista de tareas
-""",
-    'description': """
-Sencilla lista de tareas utilizada para crear un nuevo módulo con un nuevo
-modelo de datos.
-
-#Añadi los campos de descripción y fecha límite
-""",
-    'author': "Sergi García",
-    'website': "https://apuntesfpinformatica.es",
-
-    'application': True,
-
+    'name': 'Lista de tareas',
+    'summary': 'Modulo educativo para lista de tareas',
+    'description': 'Lista de tareas con vista lista, formulario, kanban y calendario.',
+    'author': 'Practica',
     'category': 'Productivity',
-    'version': '0.2',
-
+    'version': '18.0.1.0.0',
+    'license': 'LGPL-3',
+    'application': True,
+    'installable': True,
     'depends': ['base'],
-
     'data': [
         'security/ir.model.access.csv',
-        'views.xml',
+        'views/views.xml',
     ],
 }
-
-

@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+acl_biblioteca_comic,biblioteca.comic_default,model_biblioteca_comic,base.group_user,1,1,1,1
+acl_biblioteca_socio,biblioteca.socio_default,model_biblioteca_socio,base.group_user,1,1,1,1
+acl_biblioteca_ejemplar,biblioteca.ejemplar_default,model_biblioteca_ejemplar_prestamo,base.group_user,1,1,1,1

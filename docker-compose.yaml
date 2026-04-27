@@ -11,6 +11,7 @@ services:
       - "${POSTGRES_PORT:-5432}:5432"   
     volumes:
       - odoo-db-data:/var/lib/postgresql/data
+      
     restart: unless-stopped
 
   web:
@@ -18,7 +19,7 @@ services:
     depends_on:
       - db
     ports:
-      - "${ODOO_HTTP_PORT:-8070}:8069"   
+      - "${ODOO_HTTP_PORT:-8070}:8069"    
       - "${ODOO_LONGPOLL_PORT:-8072}:8072"
     environment:
       HOST: db

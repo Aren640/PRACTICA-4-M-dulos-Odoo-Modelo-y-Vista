@@ -1,0 +1,97 @@
+<odoo>
+  <data>
+
+    <record model="ir.actions.act_window" id="action_lista_tareas">
+      <field name="name">Listado de tareas</field>
+      <field name="res_model">lista_tareas.lista</field>
+      <field name="view_mode">list,form,kanban,calendar</field>
+    </record>
+
+    <menuitem id="lista_tareas_menu_root" name="Listado de tareas" sequence="10"/>
+    <menuitem id="lista_tareas_menu_1" name="Gestion de tareas" parent="lista_tareas_menu_root" sequence="20"/>
+    <menuitem id="lista_tareas_menu_1_list" name="Ver tareas" parent="lista_tareas_menu_1" action="action_lista_tareas" sequence="30"/>
+
+    <record id="view_lista_tareas_list" model="ir.ui.view">
+      <field name="name">lista.tareas.list</field>
+      <field name="model">lista_tareas.lista</field>
+      <field name="arch" type="xml">
+        <list string="Tareas" default_order="prioridad desc">
+          <field name="tarea"/>
+          <field name="prioridad"/>
+          <field name="urgente"/>
+          <field name="realizada"/>
+          <field name="fecha"/>
+        </list>
+      </field>
+    </record>
+
+    <record id="view_lista_tareas_form" model="ir.ui.view">
+      <field name="name">lista.tareas.form</field>
+      <field name="model">lista_tareas.lista</field>
+      <field name="arch" type="xml">
+        <form string="Tarea">
+          <sheet>
+            <group>
+              <field name="tarea"/>
+              <field name="realizada"/>
+              <field name="fecha"/>
+            </group>
+            <group string="Prioridad y urgencia">
+              <field name="prioridad"/>
+              <field name="urgente" readonly="1"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="view_lista_tareas_search" model="ir.ui.view">
+      <field name="name">lista.tareas.search</field>
+      <field name="model">lista_tareas.lista</field>
+      <field name="arch" type="xml">
+        <search string="Buscar tareas">
+          <field name="tarea"/>
+          <field name="fecha"/>
+          <filter name="filtro_urgente" string="Urgente" domain="[('urgente','=',True)]"/>
+          <filter name="filtro_realizada" string="Realizadas" domain="[('realizada','=',True)]"/>
+        </search>
+      </field>
+    </record>
+
+    <record id="view_lista_tareas_kanban" model="ir.ui.view">
+      <field name="name">lista.tareas.kanban</field>
+      <field name="model">lista_tareas.lista</field>
+      <field name="arch" type="xml">
+        <kanban>
+          <field name="tarea"/>
+          <field name="realizada"/>
+          <field name="prioridad"/>
+          <field name="fecha"/>
+          <templates>
+            <t t-name="card">
+              <div class="o_kanban_record_body">
+                <div><strong><field name="tarea"/></strong></div>
+                <div>Realizada: <field name="realizada"/></div>
+                <div>Prioridad: <field name="prioridad"/></div>
+                <div>Fecha: <field name="fecha"/></div>
+              </div>
+            </t>
+          </templates>
+        </kanban>
+      </field>
+    </record>
+
+    <record id="view_lista_tareas_calendar" model="ir.ui.view">
+      <field name="name">lista.tareas.calendar</field>
+      <field name="model">lista_tareas.lista</field>
+      <field name="arch" type="xml">
+        <calendar string="Calendario de tareas" date_start="fecha">
+          <field name="tarea"/>
+          <field name="prioridad"/>
+          <field name="realizada"/>
+        </calendar>
+      </field>
+    </record>
+
+  </data>
+</odoo>

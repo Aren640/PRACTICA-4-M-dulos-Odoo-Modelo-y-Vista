@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="biblioteca_ejemplar_action" model="ir.actions.act_window">
+        <field name="name">Ejemplares prestables</field>
+        <field name="res_model">biblioteca.ejemplar.prestamo</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem name="Ejemplares prestables" id="biblioteca_ejemplar_menu" parent="biblioteca_base_menu" action="biblioteca_ejemplar_action" sequence="30"/>
+
+    <record id="biblioteca_ejemplar_view_list" model="ir.ui.view">
+        <field name="name">biblioteca.ejemplar.list</field>
+        <field name="model">biblioteca.ejemplar.prestamo</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="comic_id"/>
+                <field name="socio_id"/>
+                <field name="fecha_inicio_prestamo"/>
+                <field name="fecha_fin_prevista"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="biblioteca_ejemplar_view_form" model="ir.ui.view">
+        <field name="name">biblioteca.ejemplar.form</field>
+        <field name="model">biblioteca.ejemplar.prestamo</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="comic_id"/>
+                        <field name="socio_id"/>
+                        <field name="fecha_inicio_prestamo"/>
+                        <field name="fecha_fin_prevista"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="biblioteca_ejemplar_view_search" model="ir.ui.view">
+        <field name="name">biblioteca.ejemplar.search</field>
+        <field name="model">biblioteca.ejemplar.prestamo</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="comic_id"/>
+                <field name="socio_id"/>
+                <field name="fecha_inicio_prestamo"/>
+                <field name="fecha_fin_prevista"/>
+                <filter string="Sin prestar" name="sin_prestar" domain="[('socio_id','=',False)]"/>
+            </search>
+        </field>
+    </record>
+
+</odoo>
